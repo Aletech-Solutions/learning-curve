@@ -17,6 +17,8 @@ import {
   Cancel as FailIcon,
   Lightbulb as HintIcon,
   Code as CodeIcon,
+  NavigateNext as NextIcon,
+  Replay as RetryIcon,
 } from '@mui/icons-material';
 import Editor from '@monaco-editor/react';
 import { codeService } from '../services/api';
@@ -32,18 +34,20 @@ const categoryColors = {
   'dynamic-programming': '#f97316',
 };
 
-function CodeEditor({ task, onBack, onComplete, isCompleted }) {
+function CodeEditor({ task, onBack, onComplete, onNextTask, isCompleted, hasNextTask }) {
   const [code, setCode] = useState(task.starterCode);
   const [results, setResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showHints, setShowHints] = useState(false);
   const [currentHint, setCurrentHint] = useState(0);
+  const [justCompleted, setJustCompleted] = useState(false);
 
   useEffect(() => {
     setCode(task.starterCode);
     setResults(null);
     setShowHints(false);
     setCurrentHint(0);
+    setJustCompleted(false);
   }, [task]);
 
   const runTests = async () => {
@@ -56,6 +60,7 @@ function CodeEditor({ task, onBack, onComplete, isCompleted }) {
 
       if (response.allPassed && !isCompleted) {
         onComplete(task.id, task.xp);
+        setJustCompleted(true);
       }
     } catch (error) {
       console.error('Execution error:', error);
@@ -66,6 +71,7 @@ function CodeEditor({ task, onBack, onComplete, isCompleted }) {
         
         if (testResults.allPassed && !isCompleted) {
           onComplete(task.id, task.xp);
+          setJustCompleted(true);
         }
       } catch (localError) {
         setResults({
@@ -176,15 +182,47 @@ function CodeEditor({ task, onBack, onComplete, isCompleted }) {
           </Box>
         </Box>
 
-        <Button
-          variant="contained"
-          startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <RunIcon />}
-          onClick={runTests}
-          disabled={loading}
-          sx={{ minWidth: 140 }}
-        >
-          {loading ? 'Running...' : 'Run Tests'}
-        </Button>
+        {(results?.allPassed || isCompleted) && hasNextTask ? (
+          <Box sx={{ display: 'flex', gap: 1 }}>
+            <Button
+              variant="outlined"
+              startIcon={<RetryIcon />}
+              onClick={runTests}
+              disabled={loading}
+              sx={{ 
+                borderColor: 'rgba(255,255,255,0.2)',
+                color: 'text.secondary',
+                '&:hover': { borderColor: 'rgba(255,255,255,0.4)' },
+              }}
+            >
+              Retry
+            </Button>
+            <Button
+              variant="contained"
+              endIcon={<NextIcon />}
+              onClick={onNextTask}
+              sx={{ 
+                minWidth: 160,
+                background: 'linear-gradient(135deg, #10b981 0%, #06b6d4 100%)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #34d399 0%, #22d3ee 100%)',
+                },
+              }}
+            >
+              Next Challenge
+            </Button>
+          </Box>
+        ) : (
+          <Button
+            variant="contained"
+            startIcon={loading ? <CircularProgress size={20} color="inherit" /> : <RunIcon />}
+            onClick={runTests}
+            disabled={loading}
+            sx={{ minWidth: 140 }}
+          >
+            {loading ? 'Running...' : 'Run Tests'}
+          </Button>
+        )}
       </Box>
 
       <Paper
@@ -265,13 +303,16 @@ function CodeEditor({ task, onBack, onComplete, isCompleted }) {
             options={{
               minimap: { enabled: false },
               fontSize: 14,
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "monospace",
+              fontLigatures: false,
               padding: { top: 16, bottom: 16 },
               scrollBeyondLastLine: false,
               lineNumbers: 'on',
               renderLineHighlight: 'all',
               cursorBlinking: 'smooth',
               smoothScrolling: true,
+              letterSpacing: 0,
+              disableMonospaceOptimizations: false,
             }}
           />
         </Paper>

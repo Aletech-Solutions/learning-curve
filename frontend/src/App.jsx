@@ -110,6 +110,38 @@ function App() {
   const completedCount = currentTasks.filter(t => completedTasks.has(t.id)).length;
   const progressPercent = (completedCount / currentTasks.length) * 100;
 
+  const handleNextTask = () => {
+    if (!selectedTask) return;
+    
+    const currentIndex = currentTasks.findIndex(t => t.id === selectedTask.id);
+    
+    if (currentIndex < currentTasks.length - 1) {
+      setSelectedTask(currentTasks[currentIndex + 1]);
+    } else {
+      const levels = Object.keys(levelConfig);
+      const currentLevelIndex = levels.indexOf(currentLevel);
+      
+      if (currentLevelIndex < levels.length - 1) {
+        const nextLevel = levels[currentLevelIndex + 1];
+        setCurrentLevel(nextLevel);
+        setSelectedTask(tasks[nextLevel][0]);
+      } else {
+        setSelectedTask(null);
+      }
+    }
+  };
+
+  const getHasNextTask = () => {
+    if (!selectedTask) return false;
+    
+    const currentIndex = currentTasks.findIndex(t => t.id === selectedTask.id);
+    if (currentIndex < currentTasks.length - 1) return true;
+    
+    const levels = Object.keys(levelConfig);
+    const currentLevelIndex = levels.indexOf(currentLevel);
+    return currentLevelIndex < levels.length - 1;
+  };
+
   return (
     <Box sx={{ minHeight: '100vh', py: 4 }}>
       <Dialog open={showLogin} maxWidth="sm" fullWidth>
@@ -242,7 +274,9 @@ function App() {
                 task={selectedTask}
                 onBack={() => setSelectedTask(null)}
                 onComplete={handleTaskComplete}
+                onNextTask={handleNextTask}
                 isCompleted={completedTasks.has(selectedTask.id)}
+                hasNextTask={getHasNextTask()}
               />
             ) : (
               <Grid container spacing={3}>

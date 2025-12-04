@@ -59,6 +59,17 @@ body::before {
 }
 
 .code-font {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'JetBrains Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Fix Monaco Editor font alignment */
+.monaco-editor,
+.monaco-editor .view-lines,
+.monaco-editor .inputarea {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+  font-feature-settings: normal !important;
+  font-variant-ligatures: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
