@@ -1,0 +1,459 @@
+{
+  "beginner": [
+    {
+      "id": "b1",
+      "title": "Sum of Array",
+      "description": "Write a function that returns the sum of all numbers in an array.",
+      "category": "arrays",
+      "xp": 50,
+      "starterCode": "function sumArray(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 3, 4, 5]], "expected": 15 },
+        { "input": [[10, 20, 30]], "expected": 60 },
+        { "input": [[]], "expected": 0 },
+        { "input": [[-1, 1]], "expected": 0 }
+      ],
+      "hints": ["Use a loop or reduce method", "Don't forget to handle empty arrays"]
+    },
+    {
+      "id": "b2",
+      "title": "Find Maximum",
+      "description": "Write a function that finds the maximum value in an array of numbers.",
+      "category": "arrays",
+      "xp": 50,
+      "starterCode": "function findMax(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 5, 3, 9, 2]], "expected": 9 },
+        { "input": [[-5, -1, -10]], "expected": -1 },
+        { "input": [[42]], "expected": 42 },
+        { "input": [[7, 7, 7]], "expected": 7 }
+      ],
+      "hints": ["Math.max with spread operator works", "You can also iterate and compare"]
+    },
+    {
+      "id": "b3",
+      "title": "Reverse String",
+      "description": "Write a function that reverses a string.",
+      "category": "strings",
+      "xp": 50,
+      "starterCode": "function reverseString(str) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["hello"], "expected": "olleh" },
+        { "input": ["world"], "expected": "dlrow" },
+        { "input": ["a"], "expected": "a" },
+        { "input": [""], "expected": "" }
+      ],
+      "hints": ["Split, reverse, join", "Or use a loop from the end"]
+    },
+    {
+      "id": "b4",
+      "title": "Count Vowels",
+      "description": "Write a function that counts the number of vowels in a string.",
+      "category": "strings",
+      "xp": 60,
+      "starterCode": "function countVowels(str) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["hello"], "expected": 2 },
+        { "input": ["AEIOU"], "expected": 5 },
+        { "input": ["xyz"], "expected": 0 },
+        { "input": ["programming"], "expected": 3 }
+      ],
+      "hints": ["Vowels are a, e, i, o, u", "Remember to handle uppercase"]
+    },
+    {
+      "id": "b5",
+      "title": "Even Numbers Filter",
+      "description": "Write a function that returns only the even numbers from an array.",
+      "category": "arrays",
+      "xp": 50,
+      "starterCode": "function filterEven(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 3, 4, 5, 6]], "expected": [2, 4, 6] },
+        { "input": [[1, 3, 5]], "expected": [] },
+        { "input": [[2, 4, 6]], "expected": [2, 4, 6] },
+        { "input": [[0, 1, 2]], "expected": [0, 2] }
+      ],
+      "hints": ["Use filter method", "Even numbers: num % 2 === 0"]
+    },
+    {
+      "id": "b6",
+      "title": "Factorial",
+      "description": "Write a function that calculates the factorial of a number.",
+      "category": "math",
+      "xp": 70,
+      "starterCode": "function factorial(n) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [5], "expected": 120 },
+        { "input": [0], "expected": 1 },
+        { "input": [1], "expected": 1 },
+        { "input": [7], "expected": 5040 }
+      ],
+      "hints": ["n! = n * (n-1) * ... * 1", "0! = 1 by definition"]
+    },
+    {
+      "id": "b7",
+      "title": "Palindrome Check",
+      "description": "Write a function that checks if a string is a palindrome.",
+      "category": "strings",
+      "xp": 60,
+      "starterCode": "function isPalindrome(str) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["racecar"], "expected": true },
+        { "input": ["hello"], "expected": false },
+        { "input": ["a"], "expected": true },
+        { "input": ["noon"], "expected": true }
+      ],
+      "hints": ["Compare string with its reverse", "A palindrome reads the same forwards and backwards"]
+    },
+    {
+      "id": "b8",
+      "title": "Remove Duplicates",
+      "description": "Write a function that removes duplicate values from an array.",
+      "category": "arrays",
+      "xp": 60,
+      "starterCode": "function removeDuplicates(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 2, 3, 4, 4, 5]], "expected": [1, 2, 3, 4, 5] },
+        { "input": [[1, 1, 1]], "expected": [1] },
+        { "input": [[1, 2, 3]], "expected": [1, 2, 3] },
+        { "input": [[]], "expected": [] }
+      ],
+      "hints": ["Set automatically removes duplicates", "Spread operator to convert back to array"]
+    },
+    {
+      "id": "b9",
+      "title": "FizzBuzz",
+      "description": "Write a function that returns 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, 'FizzBuzz' for both, or the number.",
+      "category": "logic",
+      "xp": 70,
+      "starterCode": "function fizzBuzz(n) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [3], "expected": "Fizz" },
+        { "input": [5], "expected": "Buzz" },
+        { "input": [15], "expected": "FizzBuzz" },
+        { "input": [7], "expected": 7 }
+      ],
+      "hints": ["Check divisible by both first", "Use modulo operator %"]
+    },
+    {
+      "id": "b10",
+      "title": "Array Average",
+      "description": "Write a function that calculates the average of numbers in an array.",
+      "category": "arrays",
+      "xp": 50,
+      "starterCode": "function average(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 3, 4, 5]], "expected": 3 },
+        { "input": [[10, 20]], "expected": 15 },
+        { "input": [[5]], "expected": 5 },
+        { "input": [[2, 4, 6, 8]], "expected": 5 }
+      ],
+      "hints": ["Sum all elements, divide by length", "Handle empty array edge case"]
+    }
+  ],
+  "average": [
+    {
+      "id": "a1",
+      "title": "Bubble Sort",
+      "description": "Implement the bubble sort algorithm to sort an array in ascending order.",
+      "category": "sorting",
+      "xp": 120,
+      "starterCode": "function bubbleSort(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[64, 34, 25, 12, 22, 11, 90]], "expected": [11, 12, 22, 25, 34, 64, 90] },
+        { "input": [[5, 1, 4, 2, 8]], "expected": [1, 2, 4, 5, 8] },
+        { "input": [[1]], "expected": [1] },
+        { "input": [[3, 2, 1]], "expected": [1, 2, 3] }
+      ],
+      "hints": ["Compare adjacent elements", "Swap if out of order", "Repeat until no swaps needed"]
+    },
+    {
+      "id": "a2",
+      "title": "Binary Search",
+      "description": "Implement binary search to find the index of a target in a sorted array. Return -1 if not found.",
+      "category": "searching",
+      "xp": 130,
+      "starterCode": "function binarySearch(arr, target) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 3, 4, 5, 6, 7], 4], "expected": 3 },
+        { "input": [[1, 3, 5, 7, 9], 7], "expected": 3 },
+        { "input": [[1, 2, 3], 5], "expected": -1 },
+        { "input": [[10], 10], "expected": 0 }
+      ],
+      "hints": ["Divide and conquer", "Compare middle element with target", "Adjust left or right pointer"]
+    },
+    {
+      "id": "a3",
+      "title": "Two Sum",
+      "description": "Find two numbers in an array that add up to a target. Return their indices.",
+      "category": "arrays",
+      "xp": 140,
+      "starterCode": "function twoSum(nums, target) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[2, 7, 11, 15], 9], "expected": [0, 1] },
+        { "input": [[3, 2, 4], 6], "expected": [1, 2] },
+        { "input": [[3, 3], 6], "expected": [0, 1] },
+        { "input": [[1, 5, 3, 7], 8], "expected": [1, 2] }
+      ],
+      "hints": ["Use a hash map for O(n) solution", "Store complement and its index"]
+    },
+    {
+      "id": "a4",
+      "title": "Merge Two Sorted Arrays",
+      "description": "Merge two sorted arrays into one sorted array.",
+      "category": "arrays",
+      "xp": 110,
+      "starterCode": "function mergeSorted(arr1, arr2) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 3, 5], [2, 4, 6]], "expected": [1, 2, 3, 4, 5, 6] },
+        { "input": [[1, 2], [3, 4]], "expected": [1, 2, 3, 4] },
+        { "input": [[], [1, 2]], "expected": [1, 2] },
+        { "input": [[1, 1], [1, 1]], "expected": [1, 1, 1, 1] }
+      ],
+      "hints": ["Use two pointers", "Compare elements from both arrays"]
+    },
+    {
+      "id": "a5",
+      "title": "Valid Parentheses",
+      "description": "Check if a string of parentheses (), [], {} is valid (properly opened and closed).",
+      "category": "strings",
+      "xp": 130,
+      "starterCode": "function isValidParentheses(s) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["()[]{}"], "expected": true },
+        { "input": ["([)]"], "expected": false },
+        { "input": ["{[]}"], "expected": true },
+        { "input": ["("], "expected": false }
+      ],
+      "hints": ["Use a stack data structure", "Push opening brackets, pop for closing"]
+    },
+    {
+      "id": "a6",
+      "title": "Fibonacci Sequence",
+      "description": "Return the nth number in the Fibonacci sequence.",
+      "category": "math",
+      "xp": 100,
+      "starterCode": "function fibonacci(n) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [0], "expected": 0 },
+        { "input": [1], "expected": 1 },
+        { "input": [10], "expected": 55 },
+        { "input": [15], "expected": 610 }
+      ],
+      "hints": ["Each number is sum of previous two", "Can use iteration or recursion"]
+    },
+    {
+      "id": "a7",
+      "title": "Rotate Array",
+      "description": "Rotate an array to the right by k steps.",
+      "category": "arrays",
+      "xp": 120,
+      "starterCode": "function rotateArray(arr, k) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 3, 4, 5], 2], "expected": [4, 5, 1, 2, 3] },
+        { "input": [[1, 2, 3], 1], "expected": [3, 1, 2] },
+        { "input": [[1, 2], 3], "expected": [2, 1] },
+        { "input": [[1], 5], "expected": [1] }
+      ],
+      "hints": ["k can be larger than array length", "Use modulo to handle this"]
+    },
+    {
+      "id": "a8",
+      "title": "Anagram Check",
+      "description": "Check if two strings are anagrams of each other.",
+      "category": "strings",
+      "xp": 100,
+      "starterCode": "function isAnagram(s1, s2) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["listen", "silent"], "expected": true },
+        { "input": ["hello", "world"], "expected": false },
+        { "input": ["anagram", "nagaram"], "expected": true },
+        { "input": ["rat", "car"], "expected": false }
+      ],
+      "hints": ["Sort both strings and compare", "Or use character frequency count"]
+    },
+    {
+      "id": "a9",
+      "title": "Selection Sort",
+      "description": "Implement the selection sort algorithm.",
+      "category": "sorting",
+      "xp": 110,
+      "starterCode": "function selectionSort(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[64, 25, 12, 22, 11]], "expected": [11, 12, 22, 25, 64] },
+        { "input": [[5, 4, 3, 2, 1]], "expected": [1, 2, 3, 4, 5] },
+        { "input": [[1, 2, 3]], "expected": [1, 2, 3] },
+        { "input": [[3]], "expected": [3] }
+      ],
+      "hints": ["Find minimum element in unsorted portion", "Swap it with the first unsorted element"]
+    },
+    {
+      "id": "a10",
+      "title": "Longest Common Prefix",
+      "description": "Find the longest common prefix string among an array of strings.",
+      "category": "strings",
+      "xp": 120,
+      "starterCode": "function longestCommonPrefix(strs) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [["flower", "flow", "flight"]], "expected": "fl" },
+        { "input": [["dog", "racecar", "car"]], "expected": "" },
+        { "input": [["test"]], "expected": "test" },
+        { "input": [["a", "ab", "abc"]], "expected": "a" }
+      ],
+      "hints": ["Compare characters at same position", "Stop when mismatch found"]
+    }
+  ],
+  "hardcore": [
+    {
+      "id": "h1",
+      "title": "Quick Sort",
+      "description": "Implement the quick sort algorithm using the divide and conquer strategy.",
+      "category": "sorting",
+      "xp": 200,
+      "starterCode": "function quickSort(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[10, 7, 8, 9, 1, 5]], "expected": [1, 5, 7, 8, 9, 10] },
+        { "input": [[3, 6, 8, 10, 1, 2, 1]], "expected": [1, 1, 2, 3, 6, 8, 10] },
+        { "input": [[1]], "expected": [1] },
+        { "input": [[5, 4, 3, 2, 1]], "expected": [1, 2, 3, 4, 5] }
+      ],
+      "hints": ["Choose a pivot element", "Partition array around pivot", "Recursively sort subarrays"]
+    },
+    {
+      "id": "h2",
+      "title": "Merge Sort",
+      "description": "Implement the merge sort algorithm.",
+      "category": "sorting",
+      "xp": 200,
+      "starterCode": "function mergeSort(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[38, 27, 43, 3, 9, 82, 10]], "expected": [3, 9, 10, 27, 38, 43, 82] },
+        { "input": [[5, 2, 4, 6, 1, 3]], "expected": [1, 2, 3, 4, 5, 6] },
+        { "input": [[1]], "expected": [1] },
+        { "input": [[2, 1]], "expected": [1, 2] }
+      ],
+      "hints": ["Divide array in half", "Recursively sort both halves", "Merge sorted halves"]
+    },
+    {
+      "id": "h3",
+      "title": "Longest Substring Without Repeating",
+      "description": "Find the length of the longest substring without repeating characters.",
+      "category": "strings",
+      "xp": 220,
+      "starterCode": "function lengthOfLongestSubstring(s) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["abcabcbb"], "expected": 3 },
+        { "input": ["bbbbb"], "expected": 1 },
+        { "input": ["pwwkew"], "expected": 3 },
+        { "input": [""], "expected": 0 }
+      ],
+      "hints": ["Use sliding window technique", "Track seen characters with a Set or Map"]
+    },
+    {
+      "id": "h4",
+      "title": "Maximum Subarray",
+      "description": "Find the contiguous subarray with the largest sum (Kadane's Algorithm).",
+      "category": "arrays",
+      "xp": 180,
+      "starterCode": "function maxSubArray(nums) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[-2, 1, -3, 4, -1, 2, 1, -5, 4]], "expected": 6 },
+        { "input": [[1]], "expected": 1 },
+        { "input": [[5, 4, -1, 7, 8]], "expected": 23 },
+        { "input": [[-1, -2, -3]], "expected": -1 }
+      ],
+      "hints": ["Track current sum and max sum", "Reset current if it becomes negative"]
+    },
+    {
+      "id": "h5",
+      "title": "Spiral Matrix",
+      "description": "Return all elements of a matrix in spiral order.",
+      "category": "arrays",
+      "xp": 230,
+      "starterCode": "function spiralOrder(matrix) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[[1, 2, 3], [4, 5, 6], [7, 8, 9]]], "expected": [1, 2, 3, 6, 9, 8, 7, 4, 5] },
+        { "input": [[[1, 2], [3, 4]]], "expected": [1, 2, 4, 3] },
+        { "input": [[[1]]], "expected": [1] },
+        { "input": [[[1, 2, 3, 4]]], "expected": [1, 2, 3, 4] }
+      ],
+      "hints": ["Track boundaries: top, bottom, left, right", "Traverse in order: right, down, left, up"]
+    },
+    {
+      "id": "h6",
+      "title": "Heap Sort",
+      "description": "Implement the heap sort algorithm.",
+      "category": "sorting",
+      "xp": 250,
+      "starterCode": "function heapSort(arr) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[12, 11, 13, 5, 6, 7]], "expected": [5, 6, 7, 11, 12, 13] },
+        { "input": [[4, 10, 3, 5, 1]], "expected": [1, 3, 4, 5, 10] },
+        { "input": [[1]], "expected": [1] },
+        { "input": [[2, 1]], "expected": [1, 2] }
+      ],
+      "hints": ["Build a max heap", "Extract max element repeatedly", "Heapify to maintain heap property"]
+    },
+    {
+      "id": "h7",
+      "title": "LRU Cache",
+      "description": "Design a data structure for Least Recently Used (LRU) cache with get and put operations.",
+      "category": "data-structures",
+      "xp": 280,
+      "starterCode": "class LRUCache {\n  constructor(capacity) {\n    // Your code here\n  }\n  \n  get(key) {\n    // Your code here\n  }\n  \n  put(key, value) {\n    // Your code here\n  }\n}",
+      "testCases": [
+        { "input": [2, [["put", 1, 1], ["put", 2, 2], ["get", 1], ["put", 3, 3], ["get", 2]]], "expected": [null, null, 1, null, -1] },
+        { "input": [1, [["put", 1, 1], ["put", 2, 2], ["get", 1]]], "expected": [null, null, -1] },
+        { "input": [2, [["get", 1]]], "expected": [-1] },
+        { "input": [2, [["put", 1, 1], ["get", 1], ["put", 1, 2], ["get", 1]]], "expected": [null, 1, null, 2] }
+      ],
+      "hints": ["Use Map for O(1) access", "Map maintains insertion order in JS", "Move accessed items to end"]
+    },
+    {
+      "id": "h8",
+      "title": "Coin Change",
+      "description": "Find the minimum number of coins needed to make up an amount. Return -1 if impossible.",
+      "category": "dynamic-programming",
+      "xp": 240,
+      "starterCode": "function coinChange(coins, amount) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[1, 2, 5], 11], "expected": 3 },
+        { "input": [[2], 3], "expected": -1 },
+        { "input": [[1], 0], "expected": 0 },
+        { "input": [[1, 5, 10, 25], 30], "expected": 2 }
+      ],
+      "hints": ["Use dynamic programming", "Build up solution from amount 0", "For each amount, try all coins"]
+    },
+    {
+      "id": "h9",
+      "title": "Longest Increasing Subsequence",
+      "description": "Find the length of the longest strictly increasing subsequence.",
+      "category": "dynamic-programming",
+      "xp": 260,
+      "starterCode": "function lengthOfLIS(nums) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": [[10, 9, 2, 5, 3, 7, 101, 18]], "expected": 4 },
+        { "input": [[0, 1, 0, 3, 2, 3]], "expected": 4 },
+        { "input": [[7, 7, 7, 7]], "expected": 1 },
+        { "input": [[1, 3, 6, 7, 9, 4, 10, 5, 6]], "expected": 6 }
+      ],
+      "hints": ["DP: dp[i] = longest ending at i", "Binary search for O(n log n) solution"]
+    },
+    {
+      "id": "h10",
+      "title": "Word Break",
+      "description": "Determine if a string can be segmented into space-separated dictionary words.",
+      "category": "dynamic-programming",
+      "xp": 250,
+      "starterCode": "function wordBreak(s, wordDict) {\n  // Your code here\n}",
+      "testCases": [
+        { "input": ["leetcode", ["leet", "code"]], "expected": true },
+        { "input": ["applepenapple", ["apple", "pen"]], "expected": true },
+        { "input": ["catsandog", ["cats", "dog", "sand", "and", "cat"]], "expected": false },
+        { "input": ["cars", ["car", "ca", "rs"]], "expected": true }
+      ],
+      "hints": ["Use dynamic programming", "dp[i] = can segment s[0:i]", "Check all possible word endings"]
+    }
+  ]
+}
+
