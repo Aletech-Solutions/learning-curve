@@ -13,6 +13,16 @@ BLUE='\033[0;34m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
+# Detect docker compose command (V2 vs V1)
+if docker compose version > /dev/null 2>&1; then
+    DOCKER_COMPOSE="docker compose"
+elif docker-compose version > /dev/null 2>&1; then
+    DOCKER_COMPOSE="docker-compose"
+else
+    echo -e "${RED}❌ Docker Compose not found. Please install Docker.${NC}"
+    exit 1
+fi
+
 print_header() {
     echo ""
     echo -e "${CYAN}  ╔═══════════════════════════════════════════╗${NC}"
@@ -58,11 +68,11 @@ start_dev() {
     init_environment
 
     echo -e "${CYAN}📦 Building containers...${NC}"
-    docker-compose build
+    $DOCKER_COMPOSE build
 
     echo ""
     echo -e "${CYAN}🐳 Starting services...${NC}"
-    docker-compose up -d
+    $DOCKER_COMPOSE up -d
 
     echo ""
     echo -e "${YELLOW}⏳ Waiting for services to be ready...${NC}"
@@ -101,11 +111,11 @@ start_prod() {
     sed -i '' 's/NODE_ENV=development/NODE_ENV=production/' .env
 
     echo -e "${CYAN}📦 Building production containers...${NC}"
-    docker-compose build --no-cache
+    $DOCKER_COMPOSE build --no-cache
 
     echo ""
     echo -e "${CYAN}🐳 Starting production services...${NC}"
-    docker-compose up -d
+    $DOCKER_COMPOSE up -d
 
     echo ""
     echo -e "${YELLOW}⏳ Waiting for services to be ready...${NC}"
@@ -125,7 +135,7 @@ stop_services() {
 
     check_docker
 
-    docker-compose down
+    $DOCKER_COMPOSE down
 
     echo ""
     echo -e "${GREEN}✅ All services stopped${NC}"
@@ -144,10 +154,10 @@ clean_environment() {
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo ""
         echo -e "${CYAN}Stopping containers...${NC}"
-        docker-compose down -v --remove-orphans
+        $DOCKER_COMPOSE down -v --remove-orphans
 
         echo -e "${CYAN}Removing images...${NC}"
-        docker-compose down --rmi local
+        $DOCKER_COMPOSE down --rmi local
 
         echo -e "${CYAN}Pruning unused resources...${NC}"
         docker system prune -f
@@ -166,7 +176,7 @@ show_logs() {
 
     check_docker
 
-    docker-compose logs -f --tail=100
+    $DOCKER_COMPOSE logs -f --tail=100
 }
 
 show_status() {
@@ -176,7 +186,7 @@ show_status() {
 
     check_docker
 
-    docker-compose ps
+    $DOCKER_COMPOSE ps
 
     echo ""
     echo -e "${CYAN}🔍 Health Checks:${NC}"
